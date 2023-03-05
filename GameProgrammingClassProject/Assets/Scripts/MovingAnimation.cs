@@ -6,22 +6,25 @@ public class MovingAnimation : MonoBehaviour
 {
     public string objectTag = "Player"; // The tag of the game object to move
     public float moveSpeed = 5.0f; // The speed at which to move the game object horizontally
+
     void Start()
     {
-
     }
 
     private void Update()
     {
         if (this.gameObject.tag == objectTag)
         {
-            // float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
 
-            // float horizontalMovement = horizontalInput * moveSpeed * Time.deltaTime;
+            float horizontalMovement = horizontalInput * moveSpeed * Time.deltaTime;
 
-            this.gameObject.transform.Translate(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0, 0);
+            this.gameObject.transform.Translate(horizontalMovement, 0, 0);
         }
     }
+
+
+    //Set animator parameters anim.SetBool ("run", horizontal Input = 0);
     // private Animator animator;
     // private bool isMoving;
 
